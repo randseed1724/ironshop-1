@@ -146,5 +146,18 @@ productRoutes.post('/products/:id', (req, res, next) => {
   );
 });
 
+productRoutes.post('/products/:id/delete', (req,res, next) => {
+  const productId= req.params.id;
+
+  Product.findByIdAndRemove(productId, (err, theProduct) => {
+    if (err) {
+      next(err);
+      return;
+    }
+    res.redirect('/products');
+  }
+  );
+});
+
 
 module.exports = productRoutes;
