@@ -1,7 +1,21 @@
 <h2> <%= product.name %> </h2>
 
-<img src="<%= product.imageUrl %>" width="100%">
+<img src="<%= product.imageUrl %>" width="50%">
 
 <h3> Price: $<%= product.price %> </h3>
 
 <p> <%= product.description %> </p>
+
+<a href="/products/<%=product._id%>/reviews/new">
+  Review This Product
+</a>
+<br />
+
+<a href="/products/<%= product._id %>/edit">
+  Edit
+</a>
+<br />
+
+<form method="post" action="/products/<%=product._id%> /delete">
+  <button>Delete</button>
+</form>
