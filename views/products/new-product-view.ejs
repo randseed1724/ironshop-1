@@ -1,5 +1,7 @@
 <h2> Add a Product </h2>
 
+
+
 <form method="post" action="/products/new">
   <label for="product-name-input"> Product Name </label>
   <input  id="product-name-input" type="text" name="productName">
@@ -19,3 +21,11 @@
 
   <button> Add Product </button>
 </form>
+
+<% if (typeof validationErrors !== 'undefined') { %>
+  <ul>
+    <% for (key in validationErrors) {  %>
+      <li> <%= validationErrors[key].message %> </li>
+  <% }  %>
+  </ul>
+ <% }  %>

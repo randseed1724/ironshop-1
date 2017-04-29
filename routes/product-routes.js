@@ -42,7 +42,10 @@ const theProduct = new Product({  //                  |
 
   theProduct.save((err) => {
     if (err) {
-      next(err);
+      res.render('products/new-product-view.ejs', {
+        validationErrors: theProduct.errors
+      });
+      console.log(theProduct.errors);
       return;
     }
 
@@ -134,7 +137,10 @@ productRoutes.post('/products/:id', (req, res, next) => {
       // 3rd arg -> CALLBACK!
     (err, theProduct) => {
       if (err) {
-        next(err);
+        res.render('products/edit-product-view.ejs', {
+          product: theProduct,
+          validationErrors: theProduct.errors
+        });
         return;
       }
 

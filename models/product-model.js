@@ -4,11 +4,12 @@ const Review = require ('./review-model.js');
 
 const Schema = mongoose.Schema;
 
+const errorName = "Please enter your name";
 
 const productSchema = new Schema({
-  name: { type: String },
+  name: { type: String, required: [true, 'Please give the product name.'] },
   price: { type: Number, default: 0 },
-  imageUrl: { type: String, default: '/images/box.gif' },
+  imageUrl: { type: String, default: '/images/box.gif', match: /^https?:\/\/\w+\.\w+  \w+\.\w+/ },
   description: { type: String },
   reviews: [ Review.schema  ]
 });
