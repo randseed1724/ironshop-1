@@ -9,7 +9,7 @@ const errorName = "Please enter your name";
 const productSchema = new Schema({
   name: { type: String, required: [true, 'Please give the product name.'] },
   price: { type: Number, default: 0 },
-  imageUrl: { type: String, default: '/images/box.gif', match: /^https?:\/\/\w+\.\w+  \w+\.\w+/ },
+  imageUrl: { type: String, default: '/images/box.gif' },
   description: { type: String },
   reviews: [ Review.schema  ]
 });

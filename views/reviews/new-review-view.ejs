@@ -17,6 +17,13 @@
   <textarea id='content-input' name='reviewContent'></textarea>
   <br />
 
-
   <button>Submit Review</button>
+
+  <% if (typeof validationErrors !== 'undefined') { %>
+    <ul>
+      <% for (key in validationErrors) {  %>
+        <li> <%= validationErrors[key].message %> </li>
+    <% }  %>
+    </ul>
+   <% }  %>
 </from>

@@ -37,7 +37,10 @@ reviewRoutes.post('/products/:productId/reviews', (req, res, next) => {
     theProduct.reviews.push(theReview);
     theProduct.save((err) => {
       if (err) {
-        next(err);
+        res.render('products/new-product-view.ejs', {
+          product: theProduct,
+          validationErrors: theProduct.errors
+        });
         return;
       }
       res.redirect(`/products/${myProductId}`);

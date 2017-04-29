@@ -45,7 +45,6 @@ const theProduct = new Product({  //                  |
       res.render('products/new-product-view.ejs', {
         validationErrors: theProduct.errors
       });
-      console.log(theProduct.errors);
       return;
     }
 
